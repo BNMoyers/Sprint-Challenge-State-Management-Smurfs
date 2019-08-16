@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
+import { addSmurf } from '../actions'
+import { connect } from 'react-redux'
 
 
-export const SmurfForm = () => {
+ const SmurfForm = (props) => {
        
-       const [smurf, setSmurf] = useState({})
+       const [smurf, setSmurf] = useState({name:'',age:'',height:''})
        const handleChange = event => {
-              const newSmurf = {name:smurf.name, 
-                                age:smurf.age,
-                                   height: smurf.height,
-                                   id: Date.now()}
-                                   
-              setSmurf(newSmurf)
+              
+              setSmurf({...smurf, [event.target.name]:event.target.value})
+             
        }
        const handleSubmit = event => {
-              
+              const newSmurf = {name:smurf.name, 
+                     age:parseInt(smurf.age),
+                        height: smurf.height,
+                        id: Date.now()}
+
+              props.addSmurf(smurf)    
+                          
        }
-       console.log('smurf',smurf)
+       console.log('smurf test',smurf)
        return(
         <form onSubmit={handleSubmit}>
         <input type='text'
@@ -38,3 +43,5 @@ export const SmurfForm = () => {
     </form>
     )
 }
+
+export default connect(null, {addSmurf})(SmurfForm)

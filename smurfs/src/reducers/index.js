@@ -1,22 +1,49 @@
-import { ADD_SMURF } from '../actions'
+import React from 'react';
+import { FETCH_SMURFS, SMURFS_FETCHED, SMURF_BROKE, MOVING_SMURF, SMURF_MOVED } from '../actions'
+
 
 export const initialState = {
     smurfArray: [
-        {
-            "name": "",
-            "age": null,
-            "height": "",
-            "id": null
-        }
-    ]
+       
+    ],
+    isLoading: false,
+    errors: ''
 }
 
 export const reducer = (state=initialState, action) => {
     switch(action.type){
-        case ADD_SMURF:
+        case FETCH_SMURFS:
             return {
-                smurfArray:[...action.payload]
+                ...state,
+                isLoading: true,
+                errors: ''
+            };
+         
+        case SMURFS_FETCHED:
+            return{
+                ...state,
+                smurfArray:[...action.payload],
+                isLoading: false,
+                errors: ''
+            }    
+        case SMURF_MOVED:
+            return {
+                smurfArray:[...action.payload],
+                isLoading: false,
+                errors: ''
         };
+        case SMURF_BROKE:
+            return {
+               isLoading: false,
+                errors: action.payload 
+            }
+        case MOVING_SMURF: 
+            return{
+                ...state,
+                isLoading: true,
+                errors: ''
+            }
+
         
         default:
             return state;
