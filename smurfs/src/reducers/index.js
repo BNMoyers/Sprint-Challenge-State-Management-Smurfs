@@ -1,5 +1,5 @@
 export const initialState = {
-    smurfsArray: [
+    smurfArray: [
         {
             "name": "",
             "age": null,

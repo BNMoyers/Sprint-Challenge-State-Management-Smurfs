@@ -1,6 +1,7 @@
+import React from 'react';
 import { Card } from 'semantic-ui-react'
 
-export const Smurf = props => {
+export const SmurfCard = props => {
     return(
         <Card.Group>
     <Card class = 'cardsBox'>
