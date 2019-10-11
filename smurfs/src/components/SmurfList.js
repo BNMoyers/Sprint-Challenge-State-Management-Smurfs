@@ -1,42 +1,11 @@
-import React, { useEffect } from 'react';
-import { Grid } from 'semantic-ui-react';
-import { SmurfCard } from './SmurfCard';
-import { connect } from 'react-redux';
-import { fetchSmurfs } from '../actions/'
+import React from 'react'
+import SmurfCard from './SmurfCard'
 
-const SmurfList = (props) => {
-    useEffect(() => {
-      props.fetchSmurfs()
-    },[])
-    if (!props.isLoading){
-
-    
+const SmurfList = () => {
     return(
-     
-      <Grid centered columns={3} >
-      
-      {props.smurfArray.map(smurf => (
-      
-      <Grid.Column width={5}>
-      <SmurfCard  smurf={smurf}/>
-      </Grid.Column>
-      ))}
-      </Grid>
-  );
-      }
+        <div>this is the smurf list</div>
 
-      else {
-        return(
-          <div>...loading</div>
-        )
-      }
-        
+    )
 }
 
-const mapStateToProps = (state) => {
-    return{
-      ...state
-    }
-  }
-
-  export default connect(mapStateToProps, {fetchSmurfs})(SmurfList)
+export default SmurfList

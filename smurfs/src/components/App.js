@@ -1,31 +1,15 @@
 import React, { Component } from "react";
-import  SmurfForm  from '../components/SmurfForm';
-import  SmurfList  from '../components/SmurfList';
-import { connect } from 'react-redux';
-
 import "./App.css";
-
-
-
-const App = () => {
- 
-  
+import SmurfList from './SmurfList.js'
+class App extends Component {
+  render() {
     return (
       <div className="App">
-        <h1>Build-Your-Own Smurf Village</h1>
-        <div className='formBox'>
-          <h2>Add a Smurf</h2>
-          <SmurfForm />
-        </div>
-        <div className='village'>
-          <h2>Your Village</h2>
-          <SmurfList />
-        </div>
-        
+        <h1>SMURFS! 2.0 W/ Redux</h1>
+        <SmurfList />
       </div>
     );
   }
-
-    
+}
 
 export default App;

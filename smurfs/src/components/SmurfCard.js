@@ -1,18 +1,9 @@
-import React from 'react';
-import { Card } from 'semantic-ui-react'
+import React from 'react'
 
-export const SmurfCard = ({ smurf }) => {
-    return(
-        <Card.Group>
-    <Card class = 'cardsBox'>
-    <Card.Content>
-     <Card.Header id='cardHeader'>{smurf.name}</Card.Header>
-         Age: {smurf.age}<br />
-         Height: {smurf.height}
-     </Card.Content>
-    </Card>
-
-   
-  </Card.Group>
+const SmurfCard = () => {
+    return (
+        <div>this is the smurf card</div>
     )
 }
+
+export default SmurfCard
