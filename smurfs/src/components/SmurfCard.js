@@ -1,14 +1,18 @@
 import React from 'react'
-
+import { Card, Button, CardTitle, CardText, CardBody } from 'reactstrap';
 const SmurfCard = ({ smurf }) => {
     return (
-        <div>
-            <p>{smurf.name}</p>
-            <p>{smurf.age}</p>
-            <p>{smurf.height}</p>
-
-            
-            </div>
+        <Card>
+            <CardBody>
+            <CardTitle>
+                {smurf.name}
+            </CardTitle>
+            <CardText>
+                <p><span className='labeltext'>Age: </span>{smurf.age}</p>
+                <p><span className='labeltext'>Height: </span> {smurf.height} cm</p>
+                </CardText>
+            </CardBody>
+            </Card>
     )
 }
 

@@ -1,6 +1,8 @@
 /*dependencies*/
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { CardDeck } from 'reactstrap'
+
 /*components*/ 
 import SmurfCard from './SmurfCard'
 import { fetchSmurfs } from './actions'
@@ -18,11 +20,11 @@ const SmurfList = props => {
 
 
     return(
-        <div>
+        <CardDeck>
             {props.error && <p>{props.error}</p>}
             {props.smurfs.map(smurf => (
                 <SmurfCard key={smurf.id} smurf={smurf}/>))}
-        </div>
+        </CardDeck>
 
     )
 }

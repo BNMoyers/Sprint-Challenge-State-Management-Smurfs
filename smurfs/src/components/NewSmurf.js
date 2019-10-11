@@ -22,6 +22,8 @@ const NewSmurf = props => {
   };
 
   return (
+    <>
+    <h2>Add a Smurf:</h2>
     <form onSubmit={handleSubmit}>
       <input
         type="text"
@@ -46,6 +48,7 @@ const NewSmurf = props => {
       />
       <button type='submit'>Add Smurf</button>
     </form>
+    </>
   );
 };
 
