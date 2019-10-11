@@ -1,11 +1,38 @@
-import React from 'react'
+/*dependencies*/
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+/*components*/ 
 import SmurfCard from './SmurfCard'
+import { fetchSmurfs } from './actions'
 
-const SmurfList = () => {
+const SmurfList = props => {
+    useEffect(()=>{
+        props.fetchSmurfs()
+    },[]);
+
+    if(props.isFetching){
+        return(
+            <div>loading...</div>
+        )
+    }
+
+
     return(
-        <div>this is the smurf list</div>
+        <div>
+            {props.error && <p>{props.error}</p>}
+            {props.smurfs.map(smurf => (
+                <SmurfCard key={smurf.id} smurf={smurf}/>))}
+        </div>
 
     )
 }
 
-export default SmurfList
+const mapStateToProps = state => {
+    return {
+        smurfs: state.smurfs,
+        isFetching: state.isFetching,
+        error: state.error
+    }
+}
+
+export default  connect(mapStateToProps, { fetchSmurfs })(SmurfList)
