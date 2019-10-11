@@ -22,34 +22,42 @@ const NewSmurf = props => {
   };
 
   return (
-    <>
-    <h2>Add a Smurf:</h2>
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        placeholder="name"
-        value={smurf.name}
-        onChange={handleChange}
-      />
-      <input
-        type='int'
-        name="age"
-        placeholder="age"
-        value={smurf.age}
-        onChange={handleChange}
-      />
-      <input
-        type="int"
-        name="height"
-        placeholder="height (in cm)"
-        value={smurf.height}
-        onChange={handleChange}
-      />
-      <button type='submit'>Add Smurf</button>
-    </form>
-    </>
+    <div className="form-group">
+      <h2>Add a Smurf:</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          className="form-control"
+          type="text"
+          name="name"
+          placeholder="name"
+          value={smurf.name}
+          onChange={handleChange}
+        />
+        <input
+          className="form-control"
+          type="int"
+          name="age"
+          placeholder="age"
+          value={smurf.age}
+          onChange={handleChange}
+        />
+        <input
+          className="form-control"
+          type="int"
+          name="height"
+          placeholder="height (in cm)"
+          value={smurf.height}
+          onChange={handleChange}
+        />
+        <button className="btn btn-primary" type="submit">
+          Add Smurf
+        </button>
+      </form>
+    </div>
   );
 };
 
-export default connect(null, {sendSmurfs})(NewSmurf)
+export default connect(
+  null,
+  { sendSmurfs }
+)(NewSmurf);

@@ -15,6 +15,7 @@ html {
 h1{
   font-size: 5em;
   margin: 50px auto;
+  text-shadow: 2px 2px 5px darkgray;
 }
 .card-deck{
   justify-content: center;
@@ -24,7 +25,8 @@ h1{
 
 .card-body{
   text-align: left;
-  
+  box-shadow: 5px 5px 5px black;
+  opacity: .8;
 }
 
 .card-title{
@@ -38,4 +40,25 @@ h1{
   font-style: italic;
   font-weight: bold;
   padding-left: 15px;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  color: white;
+  padding: 10px;
+  background-color: black;
+  opacity: .8;
+  margin: 10px;
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  box-shadow: 5px 5px 5px black;
+  
+}
+
+.form-control{
+  margin: 10px;
+  width: 200px;
 }
