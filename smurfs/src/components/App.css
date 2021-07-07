@@ -1,28 +1,64 @@
+html {
+  background-image: url('./fiona-smallwood-5CDgTxCkEAM-unsplash.jpg');
+  background-position: center;
+  background-size: fit;
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  height: 1vh;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+h1{
+  font-size: 5em;
+  margin: 50px auto;
+  text-shadow: 2px 2px 5px darkgray;
+}
+.card-deck{
+  justify-content: center;
+  margin-top: 10px;
+  background: transparent;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.card-body{
+  text-align: left;
+  box-shadow: 5px 5px 5px black;
+  opacity: .8;
+}
+
+.card-title{
+  text-align: center;
+  font-size: 2em;
+  background-color: #88CCFF;
+  
+}
+
+.labeltext{
+  font-style: italic;
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
   color: white;
+  padding: 10px;
+  background-color: black;
+  opacity: .8;
+  margin: 10px;
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  box-shadow: 5px 5px 5px black;
+  
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.form-control{
+  margin: 10px;
+  width: 200px;
 }

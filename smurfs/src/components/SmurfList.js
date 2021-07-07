@@ -1,42 +1,40 @@
-import React, { useEffect } from 'react';
-import { Grid } from 'semantic-ui-react';
-import { SmurfCard } from './SmurfCard';
-import { connect } from 'react-redux';
-import { fetchSmurfs } from '../actions/'
+/*dependencies*/
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { CardDeck } from 'reactstrap'
 
-const SmurfList = (props) => {
-    useEffect(() => {
-      props.fetchSmurfs()
-    },[])
-    if (!props.isLoading){
+/*components*/ 
+import SmurfCard from './SmurfCard'
+import { fetchSmurfs } from './actions'
 
-    
-    return(
-     
-      <Grid centered columns={3} >
-      
-      {props.smurfArray.map(smurf => (
-      
-      <Grid.Column width={5}>
-      <SmurfCard  smurf={smurf}/>
-      </Grid.Column>
-      ))}
-      </Grid>
-  );
-      }
+const SmurfList = props => {
+    useEffect(()=>{
+        props.fetchSmurfs()
+    },[]);
 
-      else {
+    if(props.isFetching){
         return(
-          <div>...loading</div>
+            <div>loading...</div>
         )
-      }
-        
+    }
+
+
+    return(
+        <CardDeck>
+            {props.error && <p>{props.error}</p>}
+            {props.smurfs.map(smurf => (
+                <SmurfCard key={smurf.id} smurf={smurf}/>))}
+        </CardDeck>
+
+    )
 }
 
-const mapStateToProps = (state) => {
-    return{
-      ...state
+const mapStateToProps = state => {
+    return {
+        smurfs: state.smurfs,
+        isFetching: state.isFetching,
+        error: state.error
     }
-  }
+}
 
-  export default connect(mapStateToProps, {fetchSmurfs})(SmurfList)
+export default  connect(mapStateToProps, { fetchSmurfs })(SmurfList)
